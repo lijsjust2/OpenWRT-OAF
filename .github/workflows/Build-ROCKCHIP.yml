@@ -1,5 +1,5 @@
 #瑞芯微平台独立编译
-name: ROCKCHIP
+name: Build-ROCKCHIP
 
 #编译计划
 on:
