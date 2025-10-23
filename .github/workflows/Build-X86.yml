@@ -1,5 +1,5 @@
 #X86平台独立编译
-name: X86
+name: Build-X86
 
 #编译计划
 on:
