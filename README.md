@@ -18,9 +18,13 @@ Scripts——自定义脚本
 Config——自定义配置
 
 # 修改内容：
+
 1、增加OpenAppFilter
+
 2、主题改成Argon
+
 3、定时译改成手动编译，执行对应的action编译对应的固件
+
 4、增加pushplus推送，环境变量增加PUSHPLUS_TOKEN，输入对应值，编译完成后会发送通知
 
 ## MediaTek平台（mediatek_filogic）
