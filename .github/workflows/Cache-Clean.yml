@@ -4,7 +4,9 @@ on:
   #手动清理
   workflow_dispatch:
 
-permissions: write-all
+permissions:
+  actions: write
+  contents: read
 
 jobs:
   cleanup:
@@ -13,7 +15,24 @@ jobs:
       - name: Checkout Projects
         uses: actions/checkout@main
 
-      - name: Cache Clean
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh cache delete --all
+      - name: Cleanup old caches
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            // 获取所有缓存
+            const caches = await github.rest.actions.listActionsCachesForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            
+            // 删除所有缓存
+            for (const cache of caches.data.actions_caches) {
+              console.log(`Deleting cache: ${cache.key}`);
+              await github.rest.actions.deleteActionsCacheById({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                cache_id: cache.id,
+              });
+            }
+            console.log('All caches have been deleted.')
