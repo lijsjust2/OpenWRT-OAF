@@ -1,5 +1,5 @@
 #联发科平台独立编译
-name: MEDIATEK
+name: Build-MEDIATEK
 
 #编译计划
 on:
