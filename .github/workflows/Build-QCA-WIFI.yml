@@ -1,5 +1,5 @@
 #高通WIFI平台独立编译
-name: QCA-WIFI
+name: Build-QCA-WIFI
 
 #编译计划
 on:
