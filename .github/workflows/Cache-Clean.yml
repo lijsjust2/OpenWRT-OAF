@@ -6,9 +6,6 @@ on:
 
 permissions: write-all
 
-env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   cleanup:
     runs-on: ubuntu-latest
@@ -17,4 +14,6 @@ jobs:
         uses: actions/checkout@main
 
       - name: Cache Clean
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh cache delete --all
