@@ -15,6 +15,10 @@ on:
         default: 'false'
         required: false
         type: boolean
+      PUSHPLUS_TOKEN:
+        description: 'Pushplus推送token，用于接收编译完成通知。'
+        required: false
+        type: string
 
 #权限设置
 permissions: write-all
@@ -57,3 +61,5 @@ jobs:
       WRT_PACKAGE: ${{inputs.PACKAGE}}
       #测试模式
       WRT_TEST: ${{inputs.TEST}}
+      #推送通知Token
+      PUSHPLUS_TOKEN: ${{inputs.PUSHPLUS_TOKEN}}
