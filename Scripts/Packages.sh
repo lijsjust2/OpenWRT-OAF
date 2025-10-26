@@ -76,10 +76,6 @@ UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 # 添加OAF (Open App Filter) 应用过滤功能
 UPDATE_PACKAGE "OpenAppFilter" "destan19/OpenAppFilter" "master" "" "open-app-filter luci-app-oaf oaf"
 
-# 添加Docker支持
-UPDATE_PACKAGE "luci-lib-docker" "lisaac/luci-lib-docker" "master"
-UPDATE_PACKAGE "luci-app-dockerman" "lisaac/luci-app-dockerman" "master" "" "docker dockerd docker-compose"
-
 #更新软件包版本
 UPDATE_VERSION() {
 	local PKG_NAME=$1
