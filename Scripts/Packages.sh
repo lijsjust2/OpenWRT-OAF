@@ -45,13 +45,9 @@ UPDATE_PACKAGE() {
 # UPDATE_PACKAGE "open-app-filter" "destan19/OpenAppFilter" "master" "" "luci-app-appfilter oaf" 这样会把原有的open-app-filter，luci-app-appfilter，oaf相关组件删除，不会出现coremark错误。
 
 # UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
-# 使用官方argon主题
-UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "master"
-# 使用官方argon主题配置插件，用于自定义主题颜色
-UPDATE_PACKAGE "luci-app-argon-config" "jerrykuku/luci-app-argon-config" "master"
-# 已移除不需要的主题插件，只保留argon主题作为默认主题
-# UPDATE_PACKAGE "aurora" "eamonxg/luci-theme-aurora" "master"
-# UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "js"
+UPDATE_PACKAGE "argon" "sbwml/luci-theme-argon" "openwrt-24.10"
+UPDATE_PACKAGE "aurora" "eamonxg/luci-theme-aurora" "master"
+UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "js"
 
 UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
 UPDATE_PACKAGE "momo" "nikkinikki-org/OpenWrt-momo" "main"
@@ -76,7 +72,13 @@ UPDATE_PACKAGE "qmodem" "FUjr/QModem" "main"
 UPDATE_PACKAGE "quickfile" "sbwml/luci-app-quickfile" "main"
 UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "luci-app-timewol luci-app-wolplus"
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
-UPDATE_PACKAGE "open-app-filter" "destan19/OpenAppFilter" "master" "" "luci-app-appfilter oaf"
+
+# 添加OAF (Open App Filter) 应用过滤功能
+UPDATE_PACKAGE "OpenAppFilter" "destan19/OpenAppFilter" "master" "" "open-app-filter luci-app-oaf oaf"
+
+# 添加Docker支持
+UPDATE_PACKAGE "luci-lib-docker" "lisaac/luci-lib-docker" "master"
+UPDATE_PACKAGE "luci-app-dockerman" "lisaac/luci-app-dockerman" "master" "" "docker dockerd docker-compose"
 
 #更新软件包版本
 UPDATE_VERSION() {
