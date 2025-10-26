@@ -30,7 +30,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        CONFIG: [IPQ50XX-WIFI-YES, IPQ60XX-WIFI-YES, IPQ807X-WIFI-YES]
+#CONFIG: [IPQ50XX-WIFI-YES, IPQ60XX-WIFI-YES, IPQ807X-WIFI-YES]
+        CONFIG: [IPQ60XX-WIFI-YES]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [main]
 
